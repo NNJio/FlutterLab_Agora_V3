@@ -1,11 +1,14 @@
+// ignore_for_file: must_be_immutable, library_private_types_in_public_api, avoid_print, prefer_interpolation_to_compose_strings, avoid_function_literals_in_foreach_calls, avoid_unnecessary_containers, prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace
+
 import 'dart:async';
 
 import 'package:agora_rtc_engine/rtc_engine.dart';
+// ignore: library_prefixes
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
+// ignore: library_prefixes
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:agora_rtm/agora_rtm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../utils/utils.dart';
 
@@ -485,7 +488,7 @@ class _LiveStreamPageState extends State<LiveStreamPage> {
             onPressed: () {},
             child: Text("Live"),
             style: ElevatedButton.styleFrom(
-                primary: Colors.red,
+                backgroundColor: Colors.red,
                 textStyle:
                     TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           ),
@@ -493,7 +496,7 @@ class _LiveStreamPageState extends State<LiveStreamPage> {
             icon: Icon(Icons.remove_red_eye_outlined),
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-                primary: Colors.black12,
+                backgroundColor: Colors.black12,
                 textStyle:
                     TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             label: Text("$chanelCount"),
