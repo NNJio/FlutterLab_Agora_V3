@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, library_private_types_in_public_api
+
 import 'dart:async';
 
 import 'package:agora_v3/Screens/live_stream_page.dart';
@@ -9,6 +11,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../utils/utils.dart';
 
+// ignore: use_key_in_widget_constructors
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -40,8 +43,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xfff160C2F),
-        title: Text("Agora Live Streaming"),
+        // ignore: use_full_hex_values_for_flutter_colors
+        backgroundColor: const Color(0xfff160c2f),
+        title: const Text("Agora Live Streaming"),
       ),
       body: Center(
         child: Container(
@@ -56,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                     controller: _userController,
                     decoration: InputDecoration(
                       errorText: _isValidUser ? 'User name is mandatory' : null,
-                      border: UnderlineInputBorder(
+                      border: const UnderlineInputBorder(
                         borderSide: BorderSide(width: 1),
                       ),
                       hintText: 'User name',
@@ -64,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                   ))
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -75,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: InputDecoration(
                       errorText:
                           _isValidChannel ? 'Channel name is mandatory' : null,
-                      border: UnderlineInputBorder(
+                      border: const UnderlineInputBorder(
                         borderSide: BorderSide(width: 1),
                       ),
                       hintText: 'Channel name',
@@ -85,10 +89,10 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.65,
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: SwitchListTile(
                     title:
-                        _isBroadcaster ? Text('Broadcaster') : Text('Audience'),
+                        _isBroadcaster ? const Text('Broadcaster') : const Text('Audience'),
                     value: _isBroadcaster,
                     activeColor: primaryColor,
                     secondary: _isBroadcaster
@@ -96,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                             Icons.account_circle,
                             color: primaryColor,
                           )
-                        : Icon(Icons.account_circle),
+                        : const Icon(Icons.account_circle),
                     onChanged: (value) {
                       setState(() {
                         _isBroadcaster = value;
@@ -111,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: onJoin,
-                        child: Text('Join'),
+                        child: const Text('Join'),
                       ),
                     )
                   ],
@@ -137,6 +141,7 @@ class _HomePageState extends State<HomePage> {
       await _handleCameraAndMic(Permission.camera);
       await _handleCameraAndMic(Permission.microphone);
       // push video page with given channel name
+      // ignore: use_build_context_synchronously
       await Navigator.push(
         context,
         MaterialPageRoute(
